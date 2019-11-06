@@ -1,0 +1,34 @@
+import java.util.concurrent.TimeUnit;
+
+public class Bam {
+	public static void main(String[] args) {
+		int second = 40; //Input current seconds from calendar
+		int hour = 11; //Input hour from calendar
+		int minute = 40;
+		System.out.println("the clock is ticking...");
+		while (true)
+		{
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			second += 1;
+			System.out.println(hour + ":" + minute + ":" + second);
+			if (second == 60)
+			{
+				minute += 1;
+				second = 0;
+				if (minute == 60)
+				{
+					hour += 1;
+					minute = 0;
+					if (hour == 24)
+					{
+						hour = 0;
+					}
+				}
+			}
+		}
+	}
+}
